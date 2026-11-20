@@ -1,11 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, signal, SimpleChanges } from '@angular/core';
+import { NavbarComponent } from './components/navbar.component/navbar.component';
 
 @Component({
-  imports: [],
+  imports: [NavbarComponent],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('newsUp');
+  public _name: string = 'mando';
 }

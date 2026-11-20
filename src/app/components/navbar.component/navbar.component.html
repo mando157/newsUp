@@ -1,0 +1,36 @@
+@for (user of users; track user.id) {
+<p>{{ user.name }}</p>
+}
+
+<div class="parent">
+    <ng-content #parent></ng-content>
+</div>
+
+<h1 #myElement>Hello Angular</h1>
+
+<p>{{ myName | uppercase }}</p>
+<p>{{ myName | lowercase }}</p>
+<p>{{ myName | titlecase }}</p>
+
+<p>{{ today | date }}</p>
+<p>{{ today | date:'short' }}</p>
+<p>{{ today | date:'fullDate' }}</p>
+<p>{{ today | date:'dd/MM/yyyy' }}</p>
+<p>{{ today | date:'yyyy-MM-dd' }}</p>
+
+<p>{{ price | currency }}</p>
+<p>{{ price | currency:'EGP' }}</p>
+<p>{{ price | currency:'USD' }}</p>
+<p>{{ price | currency:'EUR' }}</p>
+
+<p>{{ price | currency:'EGP':'symbol':'1.2-2' }}</p>
+
+<p>{{ discount | percent }}</p>
+<p>{{ discount | percent:'1.0-0' }}</p>
+
+<pre>{{ user | json }}</pre>
+
+<p>{{ name() | slice:0:7 }}</p>
+<p>{{ name() | reverse }}</p>
+
+<p>{{ courses | slice:0:2 | json }}</p>
