@@ -33,7 +33,22 @@
 -->
 
 <!-- NOTE - .2 ~ ngOnChanges() -->
-<app-navbar [name]="_name">
+<!-- <app-navbar [name]="_name">
   <p #parent>Hi From Parent</p>
-</app-navbar>
+</app-navbar> -->
 
+<!-- @for (news of news(); track $index) {
+<p>{{news.title}}</p>
+} -->
+
+
+<input type="text" [(ngModel)]="search">
+
+@if(news.isLoading()){
+<p>loading...</p>
+}@else if(news.hasValue()){
+  @for (item of news.value(); track $index) {
+  <p>{{item.name}}</p>
+  <p>{{item.title}}</p>
+  }
+}

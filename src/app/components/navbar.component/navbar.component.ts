@@ -1,6 +1,7 @@
 import { CommonModule, UpperCasePipe } from '@angular/common';
 import { Component, ElementRef, inject, input, SimpleChanges, viewChild } from '@angular/core';
 import { ReversePipe } from '../../pipes/reverse-pipe';
+import { NewsService } from '../../services/news-service';
 
 @Component({
   imports: [CommonModule , ReversePipe], //FIXME - Has All Build-in Pipes
@@ -9,28 +10,29 @@ import { ReversePipe } from '../../pipes/reverse-pipe';
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {
+  public newsService = inject(NewsService);
 
   // *   Properties   * //
 
   // REVIEW - ngOnChanges()
-  public name = input<string>('mando');
+  // public name = input<string>('mando');
 
   // REVIEW - ngOnInit()
-  public users: any[] = [];
+  // public users: any[] = [];
 
-  public myElement = viewChild<ElementRef>('myElement');
+  // public myElement = viewChild<ElementRef>('myElement');
 
   // REVIEW - Pipes
-  public myName = 'mohamed hassan';
-  public today = new Date();
-  public price = 1500;
-  public discount = 0.25;
+  // public myName = 'mohamed hassan';
+  // public today = new Date();
+  // public price = 1500;
+  // public discount = 0.25;
 
-  public user = {
-    name: 'Mohamed',
-    age: 21,
-    job: 'Angular Developer'
-  };
+  // public user = {
+  //   name: 'Mohamed',
+  //   age: 21,
+  //   job: 'Angular Developer'
+  // };
 
   public courses = ['HTML', 'CSS', 'JavaScript', 'Angular'];
 
