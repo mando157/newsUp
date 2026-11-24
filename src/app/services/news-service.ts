@@ -101,10 +101,4 @@ export class NewsService {
         defaultValue: [],
     });
 
-    constructor() {
-        effect(() => {
-            console.log(this.news.value());
-        })
-    }
-
 }

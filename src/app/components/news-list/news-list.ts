@@ -64,6 +64,7 @@ export class NewsList {
     this.newsService.currentPage.set(1);
 
     localStorage.setItem("category", this.newsService.currentCategory()!);
+    localStorage.setItem("page", String(this.newsService.currentPage()!));
   }
 
 }
