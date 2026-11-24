@@ -1,16 +1,19 @@
 import { CommonModule, UpperCasePipe } from '@angular/common';
-import { Component, ElementRef, inject, input, SimpleChanges, viewChild } from '@angular/core';
+import { Component, ElementRef, inject, input, signal, SimpleChanges, viewChild } from '@angular/core';
 import { ReversePipe } from '../../pipes/reverse-pipe';
 import { NewsService } from '../../services/news-service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  imports: [CommonModule , ReversePipe], //FIXME - Has All Build-in Pipes
+  imports: [CommonModule, ReversePipe, FormsModule], //FIXME - Has All Build-in Pipes
   selector: 'app-navbar',
   styleUrl: './navbar.component.scss',
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {
   public newsService = inject(NewsService);
+
+  public mood: any = signal("light");
 
   // *   Properties   * //
 
@@ -34,7 +37,7 @@ export class NavbarComponent {
   //   job: 'Angular Developer'
   // };
 
-  public courses = ['HTML', 'CSS', 'JavaScript', 'Angular'];
+  // public courses = ['HTML', 'CSS', 'JavaScript', 'Angular'];
 
   // *   Methods   * //
 
@@ -84,4 +87,30 @@ export class NavbarComponent {
   // ngOnDestroy() {
   //   console.log('Component Destroyed');
   // }
+
+  constructor() {
+    if (this.mood() === null) {
+      this.updataLocalstorage();
+    } else {
+      this.mood.set(localStorage.getItem("mood"));
+      document.body.setAttribute('data-theme', this.mood());
+    }
+  }
+
+  updataLocalstorage() {
+    localStorage.setItem("mood", this.mood());
+  }
+
+  toggleTheme() {
+    let currentTheme = document.body.getAttribute('data-theme'),
+      newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+    this.mood.set(newTheme);
+
+    this.updataLocalstorage();
+
+    document.body.setAttribute('data-theme', this.mood());
+
+  }
+
 }

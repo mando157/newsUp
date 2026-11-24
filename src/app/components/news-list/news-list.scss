@@ -1,0 +1,95 @@
+.header {
+    padding: 25px;
+
+    >ul {
+        display: flex;
+        gap: 15px;
+        overflow: auto;
+
+        li {
+            padding: 5px 10px;
+            background-color: var(--primary-light);
+            border-radius: 15px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition-duration: .5s;
+
+            &.active {
+                background-color: var(--primary-hover);
+                color: #fff;
+                animation: hop 2s ease-in-out infinite alternate;
+            }
+
+            &:hover {
+                background-color: var(--primary-hover);
+                color: #fff;
+            }
+        }
+    }
+
+    .indicators {
+        nav {
+            overflow: auto;
+
+            ul {
+                display: flex;
+                gap: 15px;
+                width: fit-content;
+                margin: auto;
+
+                li {
+                    width: 30px;
+                    height: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: var(--primary-light);
+                    border-radius: 15px;
+                    cursor: pointer;
+                    color: var(--text-primary);
+                    font-weight: 500;
+                    transition-duration: .5s;
+
+                    &.active {
+                        background-color: var(--primary-hover);
+                        color: #fff;
+                        animation: hop 2s ease-in-out infinite alternate;
+                    }
+
+                    &.disabled {
+                        opacity: .5;
+                        pointer-events: none;
+                        cursor: not-allowed !important;
+                    }
+
+                    &:hover:not(.disabled) {
+                        background-color: var(--primary-hover);
+                        color: #fff;
+                    }
+
+                    .page-link {
+                        background: none;
+                        border: none;
+                        color: inherit;
+                        padding: 0;
+                        height: 20px;
+                        width: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        &:focus {
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+}

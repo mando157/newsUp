@@ -1,0 +1,84 @@
+<div class="header box">
+    <ul class="m-0 p-2 list-unstyled justify-content-center">
+        @for (category of categories ; track $index) {
+        <li [ngClass]="(newsService.currentCategory() == category) ? 'active' : ''" (click)="changeCategory(category)">
+            {{category}}
+        </li>
+        }
+    </ul>
+
+    <div class="indicators">
+        <nav>
+            <ul class="pagination p-2 list-unstyled justify-content-center">
+                <li class="page-item" [ngClass]="(newsService.currentPage() == 1) ? 'disabled' : ''">
+                    <button class="page-link" (click)="prev()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2">
+                                <path d="M18 6l-6 6l6 6" opacity="0">
+                                    <animate attributeName="opacity" dur="1.6s" repeatCount="indefinite" values="0;1;0"
+                                        keyTimes="0;0.5;1" />
+                                    <animateTransform attributeName="transform" type="translate" dur="1.6s"
+                                        repeatCount="indefinite" values="3 0;-1 0;-4 0" keyTimes="0;0.5;1" />
+                                </path>
+                                <path d="M12 6l-6 6l6 6" opacity="0">
+                                    <animate attributeName="opacity" dur="1.6s" begin="0.3s" repeatCount="indefinite"
+                                        values="0;1;0" keyTimes="0;0.5;1" />
+                                    <animateTransform attributeName="transform" type="translate" dur="1.6s" begin="0.3s"
+                                        repeatCount="indefinite" values="3 0;-1 0;-4 0" keyTimes="0;0.5;1" />
+                                </path>
+                            </g>
+                        </svg>
+                    </button>
+                </li>
+
+                @for (liEle of indicators(); track $index) {
+                <li class="page-item" [ngClass]="(liEle.page == newsService.currentPage()) ? 'active' : ''">
+                    <button class="page-link" (click)="changePage(liEle.page)">{{liEle.index}}</button>
+                </li>
+                }@empty {
+                <p class="p-0 m-0">Loading ...</p>
+                }
+
+                <li class="page-item" [ngClass]="(newsService.currentPage() == indicators().length) ? 'disabled' : ''">
+                    <button class="page-link" (click)="next()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2">
+                                <path d="M6 6l6 6l-6 6" opacity="0">
+                                    <animate attributeName="opacity" dur="1.6s" repeatCount="indefinite" values="0;1;0"
+                                        keyTimes="0;0.5;1" />
+                                    <animateTransform attributeName="transform" type="translate" dur="1.6s"
+                                        repeatCount="indefinite" values="-3 0;1 0;4 0" keyTimes="0;0.5;1" />
+                                </path>
+                                <path d="M12 6l6 6l-6 6" opacity="0">
+                                    <animate attributeName="opacity" dur="1.6s" begin="0.3s" repeatCount="indefinite"
+                                        values="0;1;0" keyTimes="0;0.5;1" />
+                                    <animateTransform attributeName="transform" type="translate" dur="1.6s" begin="0.3s"
+                                        repeatCount="indefinite" values="-3 0;1 0;4 0" keyTimes="0;0.5;1" />
+                                </path>
+                            </g>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="cards py-4">
+    <div class="row row-gap-4 w-100 justify-content-between">
+        @for (item of newsArticles(); track $index) {
+        <div class="col-10 col-lg-6 mx-auto mx-lg-0">
+            <app-news-card [newsInfo]="item"></app-news-card>
+        </div>
+        }@empty{
+        <div class="col-10 col-lg-6 mx-auto mx-lg-0">
+            <app-placeholder></app-placeholder>
+        </div>
+        <div class="col-10 col-lg-6 mx-auto mx-lg-0">
+            <app-placeholder></app-placeholder>
+        </div>
+        }
+    </div>
+</div>

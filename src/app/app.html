@@ -42,7 +42,7 @@
 } -->
 
 
-<input type="text" [(ngModel)]="search">
+<!-- <input type="text" [(ngModel)]="search">
 
 @if(news.isLoading()){
 <p>loading...</p>
@@ -51,4 +51,114 @@
   <p>{{item.name}}</p>
   <p>{{item.title}}</p>
   }
-}
+} -->
+
+<app-navbar></app-navbar>
+
+<div class="container p-0 px-3">
+  <header class="py-4">
+    <div class="container box">
+      <div class="row">
+        <div class="text col-lg-6">
+          <h2>
+            Stay Informed. Stay Ahead.
+          </h2>
+          <p>Your daily dose of the latest news, all in one place.</p>
+        </div>
+        <div class="details col-lg-6">
+          <div class="row">
+            <div class="detail-box col-12 col-sm-6">
+              <div class="item">
+                <div class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="color:#3B82F6"
+                    viewBox="0 0 24 24">
+                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2">
+                      <ellipse cx="12" cy="6" rx="8" ry="3" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1">
+                        <animate attributeName="stroke-dashoffset" dur="3.2s" repeatCount="indefinite" begin="0s"
+                          values="1;0;0;1" keyTimes="0;0.25;0.8;1" />
+                      </ellipse>
+                      <path d="M4 6v12M20 6v12" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1">
+                        <animate attributeName="stroke-dashoffset" dur="3.2s" repeatCount="indefinite" begin="0.25s"
+                          values="1;0;0;1" keyTimes="0;0.25;0.75;1" />
+                      </path>
+                      <path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" pathLength="1" stroke-dasharray="1"
+                        stroke-dashoffset="1">
+                        <animate attributeName="stroke-dashoffset" dur="3.2s" repeatCount="indefinite" begin="0.5s"
+                          values="1;0;0;1" keyTimes="0;0.25;0.7;1" />
+                      </path>
+                      <path d="M4 18c0 1.66 3.58 3 8 3s8-1.34 8-3" pathLength="1" stroke-dasharray="1"
+                        stroke-dashoffset="1">
+                        <animate attributeName="stroke-dashoffset" dur="3.2s" repeatCount="indefinite" begin="0.75s"
+                          values="1;0;0;1" keyTimes="0;0.25;0.65;1" />
+                      </path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="text">
+                  <h6>150,000+ Sources</h6>
+                  <p>News from over 150,000 sources worldwide.</p>
+                </div>
+              </div>
+            </div>
+            <div class="detail-box col-12 col-sm-6">
+              <div class="item">
+                <div class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="color:#F59E0B"
+                    viewBox="0 0 24 24">
+                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2">
+                      <circle cx="12" cy="12" r="9" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1">
+                        <animate attributeName="stroke-dashoffset" dur="0.8s" begin="0s" values="1;0" fill="freeze" />
+                      </circle>
+                      <path d="M12 12V7">
+                        <animateTransform attributeName="transform" type="rotate" dur="12s" repeatCount="indefinite"
+                          values="0 12 12;360 12 12" />
+                      </path>
+                      <path d="M12 12h4">
+                        <animateTransform attributeName="transform" type="rotate" dur="2.5s" repeatCount="indefinite"
+                          values="0 12 12;360 12 12" />
+                      </path>
+                    </g>
+                    <circle cx="12" cy="12" r="1.3" fill="currentColor" />
+                  </svg>
+                </div>
+                <div class="text">
+                  <h6>24-Hour Delay</h6>
+                  <p>Free plan articles are delayed by 24 hours.</p>
+                </div>
+              </div>
+            </div>
+            <div class="detail-box col-12 col-sm-6">
+              <div class="item">
+                <div class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="color:#10B981"
+                    viewBox="0 0 24 24">
+                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2">
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M4.5 7.5h15M4.5 16.5h15" />
+                      <ellipse cx="12" cy="12" rx="9" ry="9">
+                        <animate attributeName="rx" dur="4s" repeatCount="indefinite" values="9;0.2;9" />
+                      </ellipse>
+                      <ellipse cx="12" cy="12" rx="0.2" ry="9">
+                        <animate attributeName="rx" dur="4s" repeatCount="indefinite" values="0.2;9;0.2" />
+                      </ellipse>
+                    </g>
+                  </svg>
+                </div>
+                <div class="text">
+                  <h6>Global Coverage</h6>
+                  <p>News from over 50 countries.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <app-news-list></app-news-list>
+</div>
