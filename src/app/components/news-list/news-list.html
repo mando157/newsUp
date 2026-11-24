@@ -1,11 +1,13 @@
 <div class="header box">
-    <ul class="m-0 p-2 list-unstyled justify-content-center">
-        @for (category of categories ; track $index) {
-        <li [ngClass]="(newsService.currentCategory() == category) ? 'active' : ''" (click)="changeCategory(category)">
-            {{category}}
-        </li>
-        }
-    </ul>
+    <div class="categories">
+        <ul class="mb-0 p-2 list-unstyled">
+            @for (category of categories ; track $index) {
+            <li [ngClass]="(newsService.currentCategory() == category) ? 'active' : ''" (click)="changeCategory(category)">
+                {{category}}
+            </li>
+            }
+        </ul>
+    </div>
 
     <div class="indicators">
         <nav>

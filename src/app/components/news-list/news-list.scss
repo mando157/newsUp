@@ -1,29 +1,33 @@
 .header {
     padding: 25px;
 
-    >ul {
-        display: flex;
-        gap: 15px;
+    .categories {
         overflow: auto;
+        >ul {
+            display: flex;
+            gap: 15px;
+            width: fit-content;
+            margin: auto;
 
-        li {
-            padding: 5px 10px;
-            background-color: var(--primary-light);
-            border-radius: 15px;
-            cursor: pointer;
-            color: var(--text-primary);
-            font-weight: 500;
-            transition-duration: .5s;
+            li {
+                padding: 5px 10px;
+                background-color: var(--primary-light);
+                border-radius: 15px;
+                cursor: pointer;
+                color: var(--text-primary);
+                font-weight: 500;
+                transition-duration: .5s;
 
-            &.active {
-                background-color: var(--primary-hover);
-                color: #fff;
-                animation: hop 2s ease-in-out infinite alternate;
-            }
+                &.active {
+                    background-color: var(--primary-hover);
+                    color: #fff;
+                    animation: hop 2s ease-in-out infinite alternate;
+                }
 
-            &:hover {
-                background-color: var(--primary-hover);
-                color: #fff;
+                &:hover {
+                    background-color: var(--primary-hover);
+                    color: #fff;
+                }
             }
         }
     }
