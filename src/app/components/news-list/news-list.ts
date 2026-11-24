@@ -43,7 +43,7 @@ export class NewsList {
 
     if (localStorage.getItem("page") === null) {
       localStorage.setItem("page", "1");
-      this.newsService.currentCategory.set("1");
+      this.newsService.currentPage.set(1);
     }
   }
 
